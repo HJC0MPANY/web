@@ -1,0 +1,437 @@
+3월 28일~4월 1일
+
+
+1일차(3월 28일) : 프로그램 설치(java)
+2일차(3월 29일) : 이클립스 설치, 기초 문법
+3일차(3월 30일) : 하다가 밤. 자바 기초 함. 문법
+4일차(3월 31일) : 아무것도 안함( 블로그 씀 )
+5일차(4월 1일) : 본격적으로 로그인 코드. 
+
+
+
+#단축키
+sysout 입력하고 CART+ SPACEbar
+하면 System.out.println(); 자동완성
+
+
+#스케너, 입력받는 문법
+import java.util.Scanner;
+
+public class ScannerTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		//표준콜솔에서 데이터를 읽어들이는 Scanner 객체
+		
+		//문자열
+		System.out.print("이름 : ");
+		String name = scanner.next();
+		System.out.println("name = " + name);
+		
+		//숫자
+		System.out.print("나이 : ");
+		int age = scanner.nextInt();
+		System.out.println("age = " + age);
+	}
+}
+
+
+#총점, 평균 구하기
+import java.util.Scanner;
+public class TotalAverageTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scanner = new Scanner(System.in);
+		//표준콜솔에서 데이터를 읽어들이는 Scanner 객체
+		
+		//문자열
+		System.out.print("국어 : ");
+		int KoreanScore = scanner.nextInt();
+		System.out.print("영어 : ");
+		int EnglishScore = scanner.nextInt();
+		System.out.print("수어 : ");
+		int MathScore = scanner.nextInt();
+		
+		System.out.println("total score = " + (KoreanScore+EnglishScore+MathScore));
+		System.out.println("average = " + (KoreanScore+EnglishScore+MathScore)/3);
+	}
+}
+
+
+#연산자
+package new1;
+
+import java.util.Scanner;
+
+public class OperatorTest {
+			//연산자
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//1. 사칙연산: % (나머지구하는 연산자)
+		/*Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("숫자 1: ");
+		int number1 = scanner.nextInt();
+		
+		System.out.print("숫자 2: ");
+		int number2 = scanner.nextInt();
+		
+		System.out.println(number1 + " % " + number2 + " = " + (number1 % number2));*/
+		
+		//대입연산자 (+=)
+		int x = 5;
+		x += 5;
+		
+		System.out.println("x += 5 : "  + x);
+		
+		x = 5; 
+		int y = 10;
+		System.out.println(x + " != " + y + " ==> " + (x != y));
+		
+		//논리연산자
+		System.out.println("true && true ===> " + (true && true));
+		System.out.println("true && false ===> " + (true && false));
+		
+		System.out.println("true || true ===> " + (true || true));
+		System.out.println("true || false ===> " + (true || false));
+		
+		System.out.println("!false ==> " + (!false));
+		System.out.println("!true ==> " + (!true));
+		
+		System.out.println(false && true);
+		System.out.println(true | true);
+		
+		//비트 연산자
+		x = 3;
+		// 00000000 00000000 00000000 00000011
+		y = 4;
+		// 00000000 00000000 00000000 00000100
+		int result = x & y;
+		System.out.println(result); // 0
+		int result2 = x| y;
+		System.out.println(result2); //7
+		
+		//비트 연산자는 논리연산자로도 사용될 수 있다. 
+		System.out.println("true & true ===> " + (true & true));
+		System.out.println("true & false ===> " + (true & false));
+		
+		System.out.println("true | true ===> " + (true | true));
+		System.out.println("true | false ===> " + (true | false));
+		
+		//비트 연산자는 짧은 연산을 지원하지 않는다.
+		System.out.println(false & true);
+		System.out.println(true | true);
+		
+		
+		//시프트연산자
+		x =2;
+		// 00000000 00000000 00000000 00000010
+		
+		x = x<<2;
+		System.out.println(x); //8
+		
+		x = x>>2;
+		System.out.println(x); //2
+		
+		//증감연산자
+		//연산자가 피연산자 앞에 올수도 있고(전치), 뒤에 올수도 있다. (후치)
+		x = 5;
+		y = ++x;
+		System.out.println("x = "  + x + ", y = "+ y);
+		
+		x = 5;
+		y = x++;
+		System.out.println("x = "  + x + ", y = "+ y);
+		
+		//삼항연산자
+		//(조건식) ? 참(조건식이 true일때 반환할 값) : 거짓(조건식이 false일때 반환할 값)
+		
+		x = -10;
+		int absX = (x>=0) ? x : -x;
+		System.out.println(absX);
+		
+	}
+}
+
+
+#5일차 ----------------------------------------------------------------------------------------------------------------
+
+#윤년 구하기 
+! 윤년은 4나누고, 100으로 나눌때 아니고, 400으로 나눌때 윤년이다. 
+
+import java.util.Scanner;
+
+public class LeapYearLast {
+			//윤년 판단
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("연도 입력 : ");
+		int number = scanner.nextInt();
+		
+		if(number%4==0 && number%100!=0 ) {
+			System.out.println("윤년입니다.");
+		}
+		else if(number%400==0) {
+			System.out.println("윤년입니다.");
+			
+		}
+		else {
+			System.out.println("평년입니다.");
+		}
+		
+		
+		//2번째
+//		if(number%4==0 && number%100!=0 || number%400==0 ) {
+//			System.out.println("윤년입니다.");
+//		}
+//		else {
+//			System.out.println("평년입니다.");
+//		}
+	}
+}
+
+
+#
+package new1;
+
+import java.util.Scanner;
+
+public class ifTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//단순 if 문
+		//조건이 맞으면 코드 실행하고 조건이 맞지 않으면 코드 실행 안함. 
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("숫자 입력 : ");
+		int number = scanner.nextInt();
+		
+		//if문의 실행문이 하나일때 {} 는 생략가능. but 권장안함.
+//		if(number > 10) {
+//			System.out.println("number는 10보다 크다. ");
+//		}
+//		
+		//if ~ else 구문
+		//조건에 맞지 않을때 실행할 문장도 지정 할 수 있는 구문
+		//if(조건식){
+		//조건식이 true일때 반환
+		//else{
+		//조건식이 false일때 실행할 문장
+		//}
+		
+//		if(number >10 ) {
+//			System.out.println("number는 10보다 크다. ");
+//		}
+//		else {
+//			System.out.println("number는 10보다 크지 않다. ");
+//		}
+		
+		
+		//-----
+		//다중 if문
+		//조건이 여러개인 경우
+		//if(조건식1){
+		//조건식 1이 true를 반환할때 실행하는 문장
+		//}
+		//else if(조건식2){
+		//위에있는 조건식1이 false이고 조건식2가 true를 반환활때 실행하는 문장
+		//}
+		//else{
+		//조건식1,2가 false가 모두 false인 경우 실행하는 문장
+		
+		
+//		if(number >10 ) {
+//			System.out.println("number는 10보다 크다. ");
+//		}
+//		else if(number >8) {
+//			System.out.println("number는 10보다 크지 않고, 8보다 크다. ");
+//		}
+//		else {
+//			System.out.println("number는 8보다 크지 않다. ");
+//		}
+		
+		System.out.println(number > 10 ? "number은 10보다 크다." : number >8 ? "number은 10보다 크지 않고 8보다 크다. " : "number는 8보다작다.");
+	}
+	
+	
+
+}
+
+
+
+#로그인 코드
+! 개념 설명 
+문자열 비교할때 equals 메소드 제공( == 은 안됨.)
+
+String sh1 = new String("aaa");
+String sh2 = new String("aaa");
+
+sh1 == sh2 라고 하면 false가 나옴. 
+그래서 equals (=ntentEquals)를 사용해야 문자형식이 같다는 것을 알 수 있다. !
+
+
+import java.util.Scanner;
+
+public class LoginProcess {
+	//아직 DB안배웠으므로, 임의적으로 데이터베이스에 저장된 아이디와 비밀번호를 정함.
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String dbid = "java";
+		String dbPasswd = "1111";
+		
+		//1.입력
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("아이디: ");
+		String inputId = scanner.next();
+		System.out.print("비밀번호: ");
+		String inputPasswd = scanner.next();
+		
+		//2. 연산
+		int loginResult;
+		if(!dbid.equals(inputId)) {
+			loginResult = 1;
+		}
+		else if(!dbPasswd.equals(inputPasswd)) {
+			loginResult = 2;
+		}
+		else {
+			loginResult =3;
+		}
+		
+		//3. 출력(사용자한테 처리결과를 알려줌.) 
+		if(loginResult == 1) {
+			System.out.println("당신은 우리 회원이 아닙니다.");
+		}
+		else if(loginResult == 2) {
+			System.out.println("비밀번호가 일치하지 않습니다.");
+		}
+		else {
+			System.out.println("로그인 성공!");
+		}
+	}
+}
+
+
+
+#사칙연산
+import java.util.Scanner;
+
+public class OperationTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//사칙연산 프로그램
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("피연산자1:");
+		int n1 = scanner.nextInt();
+		System.out.print("연산자:");
+		String sign = scanner.next();
+		System.out.print("피연산자2:");
+		int n2 = scanner.nextInt();
+		
+		if(sign.equals("+")) {
+			System.out.println(n1+" + "+n2+" = "+(n1+n2));
+		}
+		else if(sign.equals("-")) {
+			System.out.println(n1+" - "+n2+" = "+(n1-n2));
+		}
+		else if(sign.equals("*")) {
+			System.out.println(n1+" * "+n2+" = "+(n1*n2));
+		}
+		else if(sign.equals("/")) {
+			System.out.println(n1+" / "+n2+" = "+(n1/n2));
+		}
+		else {
+			System.out.println("선택한 연산자가 적절하지 않습니다. 다시 입력해 주세요");
+		}		
+	}
+}
+
+
+#나이구하기 결과 분리
+import java.util.Scanner;
+
+public class GenerationTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("나이 : ");
+		int age = scanner.nextInt();
+		
+		
+		//1번
+		/*if(age>=70) {
+			System.out.println("당신은 어르신입니다.");
+		}
+		else if(age>=60) {
+			System.out.println("당신은 60대입니다.");
+		}
+		else if(age>=50) {
+			System.out.println("당신은 50대입니다.");
+		}
+		else if(age>=40) {
+			System.out.println("당신은 40대입니다.");
+		}
+		else if(age>=30) {
+			System.out.println("당신은 30대입니다.");
+		}
+		else if(age>=20) {
+			System.out.println("당신은 20대입니다.");
+		}
+		else if(age>=10) {
+			System.out.println("당신은 10대입니다.");
+		}
+		else {
+			System.out.println("당신은 어린이입니다.");
+		}*/
+		
+		//2번
+		
+		// /는 몫을 의미, %는 나머지를 의미한다. 
+		
+		String generation ="";
+		if(age/10 == 0) {
+			generation ="어린이";
+		}
+		else if(age/10 == 1) {
+			generation ="10 대";
+		}
+		else if(age/10 == 2) {
+			generation ="20 대";
+		}
+		else if(age/10 == 3) {
+			generation ="30 대";
+		}
+		else if(age/10 == 4) {
+			generation ="40 대";
+		}
+		else if(age/10 == 5) {
+			generation ="50 대";
+		}
+		else if(age/10 == 6) {
+			generation ="60 대";
+		}
+		else if(age/10 == 7) {
+			generation ="어르신";
+		}
+		else {
+			generation = "사람이 아닙니다..";
+		}
+		
+		System.out.println("당신은" + generation + "입니다.");
+	}
+}
+
+
+
+
